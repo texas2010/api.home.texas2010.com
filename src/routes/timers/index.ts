@@ -6,7 +6,8 @@ const timersRoute: FastifyPluginAsync = async (
 ): Promise<void> => {
   fastify.get('/', async function (request, reply) {
     console.log(request);
-    return 'this is an timers';
+    return reply.send('This is an Timers');
+    // return 'this is an timers';
   });
 };
 
