@@ -6,8 +6,11 @@ After=network.target
 Type=simple
 User=texas2010
 WorkingDirectory=/home/texas2010/prod-projects/api.server.texas2010.com
-ExecStart=/bin/bash -c 'source /home/texas2010/.nvm/nvm.sh && node startup/prod.js'
+ExecStart=/bin/bash -c 'export NVM_DIR=/home/texas2010/.nvm && source $NVM_DIR/nvm.sh && node startup/prod.js'
 Restart=on-failure
+StandardOutput=append:/home/texas2010/prod-projects/api.server.texas2010.com/log/server.log
+StandardError=append:/home/texas2010/prod-projects/api.server.texas2010.com/log/server-error.log
+
 
 [Install]
 WantedBy=multi-user.target

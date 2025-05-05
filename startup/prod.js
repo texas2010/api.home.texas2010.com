@@ -38,6 +38,9 @@ await fs.writeFile(`config/config.prod.json`, JSON.stringify(config, null, 2));
 const configPath = resolve(__dirname, '../config/config.prod.json');
 
 // Run Fastify using the config
-execSync(`fastify start --config=${configPath} -l info dist/app.js`, {
-  stdio: 'inherit',
-});
+execSync(
+  `./node_modules/.bin/fastify start --config=${configPath} -l info dist/app.js`,
+  {
+    stdio: 'inherit',
+  }
+);
