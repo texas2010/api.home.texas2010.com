@@ -8,6 +8,14 @@
     "test": "test"
   },
   "scripts": {
+    "service:start": "systemctl start api.server.texas2010.com.service",
+    "service:stop": "systemctl stop api.server.texas2010.com.service",
+    "service:restart": "systemctl restart api.server.texas2010.com.service",
+    "service:reload": "systemctl daemon-reload",
+    "service:enable": "systemctl enable api.server.texas2010.com.service",
+    "service:status": "systemctl status api.server.texas2010.com.service",
+    "service:copy": "cp template/api.server.texas2010.com.service /etc/systemd/system",
+    "deploy": "npm run build:ts && npm run service:copy && npm run service:reload && npm run service:enable",
     "test": "npm run build:ts && tsc -p test/tsconfig.json && FASTIFY_AUTOLOAD_TYPESCRIPT=1 node --test --experimental-test-coverage --loader ts-node/esm test/**/*.ts",
     "prestart": "node ./startup/preStart.js",
     "start": "npm run build:ts && fastify start --config=./config/config.prod.json -l info dist/app.js",

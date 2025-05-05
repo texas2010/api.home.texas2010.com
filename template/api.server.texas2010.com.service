@@ -1,0 +1,13 @@
+[Unit]
+Description=Texas2010 Api Server
+After=network.target
+
+[Service]
+Type=simple
+User=texas2010
+WorkingDirectory=/home/texas2010/prod-projects/api.server.texas2010.com
+ExecStart=/usr/bin/node /home/texas2010/prod-projects/api.server.texas2010.com/startup/prod.js
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
