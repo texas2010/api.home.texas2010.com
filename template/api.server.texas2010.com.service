@@ -1,6 +1,7 @@
 [Unit]
 Description=Texas2010 Api Server
-After=network.target
+After=network.target caddy.service
+Requires=caddy.service
 
 [Service]
 Type=simple
