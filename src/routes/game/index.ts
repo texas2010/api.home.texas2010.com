@@ -5,7 +5,8 @@ const kanoplayRoute: FastifyPluginAsync = async (
   opts
 ): Promise<void> => {
   fastify.get('/', async function (request, reply) {
-    return 'this is an game';
+    return reply.send('This is an game');
+    // return 'this is an game';
   });
 };
 

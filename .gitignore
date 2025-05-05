@@ -60,7 +60,9 @@ profile*
 # generated code
 examples/typescript-server.js
 test/types/index.js
-config/*
+config/**
+
+!config/
 
 # compiled app
 dist

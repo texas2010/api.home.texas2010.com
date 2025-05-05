@@ -1,11 +1,13 @@
 import { FastifyPluginAsync } from 'fastify';
 
 const root: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
-  fastify.get('/', async (request: any, reply: any) => {
+  fastify.get('/', async (request, reply) => {
     const addressInfo = fastify.server.address();
-    if (!addressInfo || typeof addressInfo === 'string') return;
+    if (!addressInfo || typeof addressInfo === 'string') {
+      return reply.send({ hello: 'world', port: null });
+    }
     const port = addressInfo.port;
-    return { hello: 'world', port: port };
+    return reply.send({ hello: 'world', port });
   });
 };
 
