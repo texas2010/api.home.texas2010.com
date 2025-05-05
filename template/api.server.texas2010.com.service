@@ -6,7 +6,7 @@ After=network.target
 Type=simple
 User=texas2010
 WorkingDirectory=/home/texas2010/prod-projects/api.server.texas2010.com
-ExecStart=/usr/bin/node /home/texas2010/prod-projects/api.server.texas2010.com/startup/prod.js
+ExecStart=/bin/bash -c 'source /home/texas2010/.nvm/nvm.sh && node startup/prod.js'
 Restart=on-failure
 
 [Install]
