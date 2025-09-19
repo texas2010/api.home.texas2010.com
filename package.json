@@ -11,6 +11,7 @@
     "test": "npm run build:ts && tsc -p test/tsconfig.json && FASTIFY_AUTOLOAD_TYPESCRIPT=1 node --test --experimental-test-coverage --loader ts-node/esm test/**/*.ts",
     "prestart": "node ./startup/preStart.js",
     "start": "npm run build:ts && fastify start --config=./config/config.prod.json -l info dist/app.js | pino-pretty",
+    "prod:start": "npm run prestart && fastify start --config=./config/config.prod.json -l info dist/app.js | pino-pretty",
     "build:ts": "tsc",
     "watch:ts": "tsc -w",
     "predev": "NODE_ENV=development node ./startup/preStart.js",
