@@ -1,23 +1,48 @@
-# Getting Started with [Fastify-CLI](https://www.npmjs.com/package/fastify-cli)
+# Welcome to Texas2010's API Server 👋
 
-This project was bootstrapped with Fastify-CLI.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-## Available Scripts
+> A personal backend API server that acts as the central hub for my tools and automations. It handles background tasks, cron jobs, and routes requests from any device to the appropriate service or logic. It's self-hosted on my own Linux machine as part of a lightweight home lab setup.
 
-In the project directory, you can run:
+## Install
 
-### `npm run dev`
+```sh
+npm install
+```
 
-To start the app in dev mode.\
+## Usage
 
-### `npm start`
+```sh
+npm run dev
+```
 
-For production mode
+## Run tests
 
-### `npm run test`
+```sh
+npm run test
+```
 
-Run the test cases.
+## Author
 
-## Learn More
+👤 **texas2010**
 
-To learn Fastify, check out the [Fastify documentation](https://fastify.dev/docs/latest/).
+- Github: [@texas2010](https://github.com/texas2010)
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+## 📝 License
+
+Copyright © 2025 [texas2010](https://github.com/texas2010)
+
+This project is [MIT](LICENSE) licensed.
+
+This is an open-source project by texas2010.  
+If you use or modify this project, you must include attribution clearly in your documentation, UI, or package metadata.
+
+Do not claim authorship or remove credit.
+
+---
+
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
