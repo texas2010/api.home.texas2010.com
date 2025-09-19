@@ -10,7 +10,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const isDev = process.env.NODE_ENV === 'development';
-const domain = isDev ? 'api.home.dev.texas2010.com' : 'api.home.texas2010.com';
+const domain = isDev ? 'api-home.dev.texas2010.com' : 'api.home.texas2010.com';
 const mode = isDev ? 'dev' : 'prod';
 const caddy = new CaddyClient();
 
