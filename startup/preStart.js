@@ -1,6 +1,5 @@
 import fs from 'fs/promises';
 import getPort from 'get-port';
-import { exit } from 'process';
 
 async function directoryExists(path) {
   try {
@@ -23,13 +22,13 @@ if (!(await directoryExists('config'))) {
 
 const port = await getPort();
 
-const config = {
-  port,
-  address: '0.0.0.0',
-};
-
 const isDev = process.env.NODE_ENV === 'development';
 const mode = isDev ? 'dev' : 'prod';
+
+const config = {
+  port: isDev ? port : 3000,
+  address: '0.0.0.0',
+};
 
 await fs.writeFile(
   `config/config.${mode}.json`,

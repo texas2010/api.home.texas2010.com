@@ -10,9 +10,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const isDev = process.env.NODE_ENV === 'development';
-const domain = isDev
-  ? 'api-server.dev.texas2010.com'
-  : 'api.server.texas2010.com';
+const domain = isDev ? 'api.home.dev.texas2010.com' : 'api.home.texas2010.com';
 const mode = isDev ? 'dev' : 'prod';
 const caddy = new CaddyClient();
 
@@ -28,30 +26,29 @@ const app: FastifyPluginAsync<AppOptions> = async (
   opts
 ): Promise<void> => {
   // Place here your custom code!
-
-  try {
-    const config = await fs.readFile(`config/config.${mode}.json`, 'utf8');
-    const port = JSON.parse(config).port;
-
-    await caddy.addRoute({
-      '@id': domain,
-      match: [{ host: [domain] }],
-      handle: [
-        {
-          handler: 'reverse_proxy',
-          upstreams: [
-            {
-              dial: isDev ? `127.0.0.1:${port}` : `0.0.0.0:${port}`,
-            },
-          ],
-        },
-      ],
-    });
-  } catch (error) {
-    console.log(error);
-  }
-
   if (isDev) {
+    try {
+      const config = await fs.readFile(`config/config.${mode}.json`, 'utf8');
+      const port = JSON.parse(config).port;
+
+      await caddy.addRoute({
+        '@id': domain,
+        match: [{ host: [domain] }],
+        handle: [
+          {
+            handler: 'reverse_proxy',
+            upstreams: [
+              {
+                dial: isDev ? `127.0.0.1:${port}` : `0.0.0.0:${port}`,
+              },
+            ],
+          },
+        ],
+      });
+    } catch (error) {
+      console.log(error);
+    }
+
     console.log(`Domain: https://${domain}`);
   }
 
