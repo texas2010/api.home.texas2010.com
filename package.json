@@ -1,6 +1,6 @@
 {
   "type": "module",
-  "name": "api.server.texas2010.com",
+  "name": "api.home.texas2010.com",
   "version": "0.0.0",
   "description": "A personal backend API server that acts as the central hub for my tools and automations. It handles background tasks, cron jobs, and routes requests from any device to the appropriate service or logic. It's self-hosted on my own Linux machine as part of a lightweight home lab setup.",
   "main": "app.ts",
