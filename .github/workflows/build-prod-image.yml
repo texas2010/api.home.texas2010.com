@@ -1,0 +1,32 @@
+name: Build and Push Production Image
+
+on:
+  push:
+    branches:
+      - prod # trigger only when prod branch gets new commits
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write # needed to push to GHCR
+
+    steps:
+      - name: Checkout current repo
+        uses: actions/checkout@v4
+
+      - name: Download Dockerfile from texas2010-dockerfiles
+        run: |
+          curl -L -o Dockerfile https://raw.githubusercontent.com/texas2010/texas2010-dockerfiles/main/api.home.texas2010.com/Dockerfile
+
+      - name: Log in to GitHub Container Registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Build Docker image
+        run: |
+          docker build --pull --no-cache -f Dockerfile -t ghcr.io/texas2010/api.home.texas2010.com:latest .
+
+      - name: Push Docker image
+        run: |
+          docker push ghcr.io/texas2010/api.home.texas2010.com:latest

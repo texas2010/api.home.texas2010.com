@@ -1,8 +1,8 @@
-# Welcome to Texas2010's API Server 👋
+# Welcome to Texas2010's API Home Service 👋
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-> A personal backend API server that acts as the central hub for my tools and automations. It handles background tasks, cron jobs, and routes requests from any device to the appropriate service or logic. It's self-hosted on my own Linux machine as part of a lightweight home lab setup.
+> A personal backend API Service that acts as the central hub for my tools and automations. It handles background tasks, cron jobs, and routes requests from any device to the appropriate service or logic. It's self-hosted on my own Linux machine as part of a lightweight home lab setup.
 
 ## Install
 
